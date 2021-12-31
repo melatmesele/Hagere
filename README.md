@@ -4,7 +4,7 @@ Hagere is a website that allows the public to interact with the government in or
    
 1.Login for existing users or registration for new users
 2. A menu from which they can select the sectors in which they wish to participate.
-3. Amenu for selecting government offices
+3. A menu for selecting government offices
 4.comment on the uploaded challenge
 5.challange proposal file uploading section
 6.Request for a government office account (Authorized with the webadministrator)
