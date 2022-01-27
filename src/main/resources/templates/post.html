@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>register</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+
+
+    <div>
+
+        <nav class="navbar navbar-expand-md navbar-light bg-black">
+            <a href="#" class="navbar-brand " style="margin-left: 10px;">
+
+                <a class="navbar-brand" href="#"><figure><img class="rounded-circle" style="width:15rem" src="https://blogger.googleusercontent.com/img/a/AVvXsEgN-aUdAds8GtDJaa7zyJkyD-gd-gBHnrV4K_UjVWlC4jYbpL72AorivGaC-pIzSiYq1Zj_bU_vObMoNgopLF9J1IdVaP4_SZcHPZkKgHq59OWEsJAQ604bjMiKBzWRw5vlRahlmQ1YBg03_0UoVjXTYYzBne6ZB3XEGMDkT7bVtfhtyilgP2Q_Uvp7Qw=s320" ></figure></a>
+
+
+
+
+
+
+                <div class="text-right" style="background-color: white;">
+                    <button
+                            class="navbar-toggler btn btn-secondary"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#toggleMobileMenu"
+                            aria-bs-controls="toggleMobileMenu"
+                            aria-expanded="false"
+                            aria-lable="Toggel navigation"
+                            style="margin-right: 12px;" >
+                        <span class="navbar-toggler-icon"></span>
+                        Menu</button>
+                </div>
+
+                <div class="collapse navbar-collapse " id="toggleMobileMenu">
+
+
+                    <ul class="navbar-nav text-right"  style="margin-left: 10px; ">
+                        <h1 style ="color: white; margin-right: 5%; font-style: italic;">Alone, me can do little :Together we can can do so much!!</h1>
+
+                        <li>
+                            <a class="nav-link text-white-50" th:href="@{/}">New</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-white-50" th:href="@{/complains/current}">urgent</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-white-50" th:href="@{/}">solved</a>
+                        </li>
+                    </ul>
+                </div>
+                <a  class="btn btn-primary mt-2 mb-2 text-right" style="margin-right:10px;" th:href="@{/logout}">Logout</a>
+
+
+
+                <nav>
+            <form class="form-check-inline my-2 my-lg-0">
+                <a class="btn btn-primary my-2 my-sm-1 " type="submit" href="login.html">Login</a>
+
+                <a class="btn btn-primary my-2 my-sm-0 " type="submit" href="register.html">signup</a>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="container p-2">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="text-center">post Form</h3>
+                    <form th:action="@{/post}" th:object="${problem}" method="post">
+
+
+
+
+                        <div class="form-group ">
+                            <label for="organization" >User name</label>
+                            <input type="text" class="form-control"    th:field="${problem.organization}"  aria-describedby="uNhelp" required>
+                        </div>
+
+                        <div class="form-group ">
+                            <label for="description" >description</label>
+                            <input type="text" class="form-control"  th:field="${problem.description}"  aria-describedby="emailhelp" required>
+                        </div>
+                        <label for="type" class="typeLabel">Type</label>
+                        <div id="type">
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="type"  th:field="${problem.type}"  value="urgent">
+                                <label class="form-check-label" for="gender">Urgent</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="type"  th:field="${problem.type}" value="New">
+                                <label class="form-check-label" for="gender">New</label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group "><input type="submit" name="post" value="Post" class="form-control btn btn-primary"></div>
+
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

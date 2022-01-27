@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>register</title>
+  <!-- Bootstrap core CSS -->
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+  <link th:href="@{/css/all.css}" rel="stylesheet">
+
+</head>
+<body >
+
+<header>
+  <div>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-black">
+      <a href="#" class="navbar-brand " style="margin-left: 10px;">
+
+        <a class="navbar-brand" href="#"><figure><img class="rounded-circle" style="width:15rem" src="https://blogger.googleusercontent.com/img/a/AVvXsEgN-aUdAds8GtDJaa7zyJkyD-gd-gBHnrV4K_UjVWlC4jYbpL72AorivGaC-pIzSiYq1Zj_bU_vObMoNgopLF9J1IdVaP4_SZcHPZkKgHq59OWEsJAQ604bjMiKBzWRw5vlRahlmQ1YBg03_0UoVjXTYYzBne6ZB3XEGMDkT7bVtfhtyilgP2Q_Uvp7Qw=s320" ></figure></a>
+
+
+
+
+
+
+        <div class="text-right" style="background-color: white;">
+          <button
+                  class="navbar-toggler btn btn-secondary"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#toggleMobileMenu"
+                  aria-bs-controls="toggleMobileMenu"
+                  aria-expanded="false"
+                  aria-lable="Toggel navigation"
+                  style="margin-right: 12px;" >
+            <span class="navbar-toggler-icon"></span>
+            Menu</button>
+        </div>
+
+        <div class="collapse navbar-collapse " id="toggleMobileMenu">
+
+
+          <ul class="navbar-nav text-right"  style="margin-left: 10px; ">
+            <h1 style ="color: white; margin-right: 5%; font-style: italic;">Alone, me can do little :Together we can can do so much!!</h1>
+
+            <li>
+              <a class="nav-link text-white-50" href="users.html">Users list</a>
+            </li>
+            <li>
+              <a class="nav-link text-white-50" href="govRegister.html">regsiter government offices</a>
+            </li>
+            <li>
+              <a class="nav-link text-white-50" href="home.html">Home</a>
+            </li>
+          </ul>
+        </div>
+        <a  class="btn btn-primary mt-2 mb-2 text-right" style="margin-right:10px;" th:href="@{/logout}">Logout</a>
+
+        <form class="form-check-inline my-2 my-lg-0">
+          <a class="btn btn-primary my-2 my-sm-1 " type="submit" href="login.html">Login</a>
+
+          <a class="btn btn-primary my-2 my-sm-0 " type="submit" href="register.html">signup</a>
+        </form>
+  </div>
+  </div>
+  </nav>
+</header>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<div class="container p-2">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="text-center">Registration Form</h3>
+        <form th:action="@{/register}" th:object="${user}" method="post"
+              >
+          <div class="form-group ">
+            <label for="fullName" >Full Name</label>
+            <input type="text" class="form-control" th:field="${user.fullName}" aria-describedby="namehelp" required>
+          </div>
+          <div class="form-group ">
+            <label for="citizen" >citizenship</label>
+            <input type="text" class="form-control" th:field="${user.citizenship}" aria-describedby="citzhelp" required>
+          </div>
+          <div class="form-group ">
+            <label for="Address" >Address(current living location)</label>
+            <input type="text" class="form-control" th:field="${user.Address}" aria-describedby="Adhelp" required>
+          </div>
+          <div class="form-group ">
+            <label for="dob" >Date of birth</label>
+            <input type="date" class="form-control" th:field="${user.DOB}" aria-describedby="dobhelp" required>
+          </div>
+          <label for="gender" class="genderLabel">Gender</label>
+          <div id="gender">
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="gender"  th:field="${user.gender}"  value="Female">
+              <label class="form-check-label" for="gender">Female</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="gender"  th:field="${user.gender}" value="Male">
+              <label class="form-check-label" for="gender">Male</label>
+            </div>
+          </div>
+          <div class="form-group ">
+            <label for="email" >Email</label>
+            <input type="email" class="form-control"  th:field="${user.email}"  aria-describedby="emailhelp" required>
+          </div>
+          <div class="form-group ">
+            <label for="userName" >User name</label>
+            <input type="text" class="form-control"    th:field="${user.username}"  aria-describedby="uNhelp" required>
+          </div>
+
+
+         <br> <label for="inputPassword5" class="form-label">Password</label>
+          <input type="password"   th:field="${user.password}" class="form-control" aria-describedby="passwordHelpBlock">
+          <div id="passwordHelpBlock" class="form-text">
+            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+          </div>
+          <div class="form-group ">
+            <label for="mobileNumber" >Mobile Number</label>
+            <input type="tel" class="form-control"  th:field="${user.mobileNumber}"  aria-describedby="uNhelp" required>
+          </div><br>
+          <div class="form-group "><input type="submit" name="registration" value="Register" class="form-control btn btn-primary"></div>
+          <span>Already registered? <a href="/" th:href="@{/login}">Login
+								here</a></span>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
